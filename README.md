@@ -9,7 +9,11 @@ Download the directory, open terminal and run `chmod +x load.sh` and `./load.sh`
 
 You can now choose automatic control or manual control to disable Turbo Boost.
 
-## 2a. Automatic Control (suggested)
+## 2. Shortcut Set-Up
+Remember where you copied the kext (hopefully somewhere it doesn't bother you) now go there and option+rigt click to copy the pathname
+Install both shortcuts and during setup paste the path to kext 
+Now you can run it manually. In the next step you can do it automatically
+## 3a. Automatic Control (suggested)
 To ensure Turbo Boost is always disabled, we need to run `disable turbo boost` shortcut every time the computer is unlocked.
 This is because after unlock the kext will stop working (for some reason).
 
@@ -28,7 +32,7 @@ And finally select wake up as the trigger
 
 This will be called each time the computer is unlocked, and works well (for me at least).
 
-## 2b. Manual Control (if you want)
+## 3b. Manual Control (if you want)
 Run the shortcut from Shortcuts app, menubar, services, with a keyboard shortcut whatever you want
 
 Bear in mind that after enabling, it probably will auto-disable after the next computer unlock.
