@@ -17,10 +17,14 @@ You can choose to do this yourself manually, but good luck remembering to do tha
 
 This can be easily automated on macOS.
 Download [Shortery](https://apps.apple.com/tr/app/shortery/id1594183810?mt=12) from Mac App Store
+
 Set-up a new automation with trigger type wake up/sleep
-give it a name
-select the shortcut from list
-and finally select wake up as the trigger
+
+Give it a name
+
+Select the shortcut from list
+
+And finally select wake up as the trigger
 
 This will be called each time the computer is unlocked, and works well (for me at least).
 
