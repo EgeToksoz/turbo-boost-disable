@@ -5,21 +5,7 @@ I love TBS but was being constantly bombared with at least 3 login prompts every
 # Install
 ## 1. Setup (Required)
 
-Download the directory and place in your home folder (`~/turbo-boost-disable`).
-
-We need to run `disable turbo boost.shortcut` and `enable turbo boost.shortcut` as root.
-Therefore, modify your `/etc/sudoers` file to not require a password for these scripts.
-
-Edit the sudoers file:
-```sh
-sudo visudo /etc/sudoers
-```
-
-Append these lines to `/etc/sudoers`, replacing `myusername` with your login username (use `whoami` to find this out):
-```
-myusername ALL=(root) NOPASSWD: /Users/myusername/turbo-boost-disable/load.sh
-myusername ALL=(root) NOPASSWD: /Users/myusername/turbo-boost-disable/unload.sh
-```
+Download the directory and '''chmod +x load.sh''' and ./load.sh before placing the kext in your home folder
 
 You can now choose automatic control or manual control to disable Turbo Boost.
 
