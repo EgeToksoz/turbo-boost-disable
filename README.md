@@ -7,12 +7,10 @@ I love TBS but was being constantly bombared with at least 3 login prompts every
 
 Download the directory, open terminal and run `chmod +x load.sh` and `./load.sh` before placing the kext to somewhere safe from deletion
 
-You can now choose automatic control or manual control to disable Turbo Boost.
-
 ## 2. Shortcut Set-Up
 Remember where you copied the kext (hopefully somewhere it doesn't bother you) now go there and option+rigt click to copy the pathname
 Install both shortcuts and during setup paste the path to kext 
-Now you can run it manually. In the next step you can do it automatically
+Now you can run it manually. You can now choose automatic control or manual control to disable/enable Turbo Boost.
 ## 3a. Automatic Control (suggested)
 To ensure Turbo Boost is always disabled, we need to run `disable turbo boost` shortcut every time the computer is unlocked.
 This is because after unlock the kext will stop working (for some reason).
