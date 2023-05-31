@@ -1,53 +1,18 @@
 # turbo-boost-disable
 
-## Disclaimer
-
-**This project is END-OF-LIFE.**
-This issue does not affect Apple Silicon Macs: as I no longer own an Intel Mac, I cannot guarantee the project works.
-If you would like continue development, please fork.
-
-This tool is **only a shell wrapper abusing system privilages** to wrap [Turbo Boost Switcher (TBS)](https://github.com/rugarciap/Turbo-Boost-Switcher) functionality behind the command line. 
-You're probably better off using TBS to be honest.
-
-This issue only affects Intel Macs.
-If you're using an Apple Silicon based Mac, you are free from overheating by design!
-Additionally, the kext shown here will only work on Intel-based Macs.
-
-## Why?
-My 2018 Intel MacBook Pro runs hot most of the time. 
-It's well known that integrated circuits last longer if they are not stressed out as much during their life.
-That means (relatively) cool operation most of the time. 
-Typing on a warm keyboard is also a deeply unpleasent experience.
-I'm willing to have a bit of a hit in performance (about 20%) so that I can have a much nicer time using my computer.
-
 I love TBS but was being constantly bombared with at least 3 login prompts every time I unlocked my computer.
-There were no workarounds for this as far as I could tell, so I wrote this simple wrapper so I'll never have to see another one of those damn prompts again.
-
-This program runs totally silently in the background and I never have to think about it; the same goes for my MacBook.
-It's finally cool, calm, and lasts longer on battery life.
 
 # Install
-
-This is just a shell wrapper around a kext to disable Turbo Boost on 64-bit macOS, taken directly from [TBS](https://github.com/rugarciap/Turbo-Boost-Switcher).
-
-We have to use the direct TBS kext because for some reason, their kext can run on macOS, but we cannot sign our own version to work on macOS. They must have signed it with an Apple key or something?
-Anyway, to get around having to use the crappy Turbo-Boost Switcher GUI, we take the core kext, which is directly enabled/disabled with the shell scripts in this repo. Enjoy!
-
-### git branch
-
-The primary `git` branch is `main`.
-Make sure you are working off this correct branch.
-
 ## 1. Setup (Required)
 
 Download the directory and place in your home folder (`~/turbo-boost-disable`).
 
-We need to run `load.sh` and `unload.sh` as root.
+We need to run `disable turbo boost.shortcut` and `enable turbo boost.shortcut` as root.
 Therefore, modify your `/etc/sudoers` file to not require a password for these scripts.
 
 Edit the sudoers file:
 ```sh
-$ sudo visudo /etc/sudoers
+sudo visudo /etc/sudoers
 ```
 
 Append these lines to `/etc/sudoers`, replacing `myusername` with your login username (use `whoami` to find this out):
@@ -56,51 +21,25 @@ myusername ALL=(root) NOPASSWD: /Users/myusername/turbo-boost-disable/load.sh
 myusername ALL=(root) NOPASSWD: /Users/myusername/turbo-boost-disable/unload.sh
 ```
 
-Ensure that `load.sh`, `unload.sh`, `start.sh` are only readable and executable, not writable (for security purposes).
-They should also be owned by root (with `setuid`), so only `root` can alter these permissions.
-```sh
-$ sudo chown root:wheel ~/turbo-boost-disable/*.sh
-$ sudo chmod 4755 ~/turbo-boost-disable/*.sh
-```
-
 You can now choose automatic control or manual control to disable Turbo Boost.
 
 ## 2a. Automatic Control (suggested)
-To ensure Turbo Boost is always disabled, we need to run `start.sh` every time the computer is unlocked.
+To ensure Turbo Boost is always disabled, we need to run `disable turbo boost` shortcut every time the computer is unlocked.
 This is because after unlock the kext will stop working (for some reason).
 
 You can choose to do this yourself manually, but good luck remembering to do that every time.
 
 This can be easily automated on macOS.
-For example, I recommend using `sleepwatcher`, a good tool for running scripts after lock/unlock on macOS.
-To install `sleepwatcher`, just use homebrew and start the service:
-```sh
-$ brew install sleepwatcher
-$ brew services start sleepwatcher
-```
-
-Then create the wakeup script file at `~/.wakeup`:
-```sh
-$ touch ~/.wakeup
-$ echo "#!/bin/sh" >> ~/.wakeup
-$ echo "~/turbo-boost-disable/start.sh" >> ~/.wakeup
-$ chmod u+x ~/.wakeup
-```
+Download [Shortery](https://apps.apple.com/tr/app/shortery/id1594183810?mt=12) from Mac App Store
+Set-up a new automation with trigger type wake up/sleep
+give it a name
+select the shortcut from list
+and finally select wake up as the trigger
 
 This will be called each time the computer is unlocked, and works well (for me at least).
 
 ## 2b. Manual Control (if you want)
-As long as you followed step (1) above, these commands should not require a password to run.
-
-Disable Turbo Boost:
-```sh
-sudo ~/turbo-boost-disable/load.sh
-```
-
-Enable Turbo Boost:
-```sh
-sudo ~/turbo-boost-disable/unload.sh
-```
+Run the shortcut from Shortcuts app, menubar, services, with a keyboard shortcut whatever you want
 
 Bear in mind that after enabling, it probably will auto-disable after the next computer unlock.
 You should use the Automatic Control directions to ensure that Turbo Boost is always disabled.
