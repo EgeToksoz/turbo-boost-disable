@@ -5,7 +5,7 @@ I love TBS but was being constantly bombared with at least 3 login prompts every
 # Install
 ## 1. Setup (Required)
 
-Download the directory and `chmod +x load.sh` and `./load.sh` before placing the kext in your home folder
+Download the directory, open terminal and run `chmod +x load.sh` and `./load.sh` before placing the kext in your home folder
 
 You can now choose automatic control or manual control to disable Turbo Boost.
 
