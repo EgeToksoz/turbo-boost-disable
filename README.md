@@ -8,6 +8,7 @@ I love TBS but was being constantly bombared with at least 3 login prompts every
 Download the directory, open terminal and run `chmod +x load.sh` and `./load.sh` before placing the kext to somewhere safe from deletion
 
 ## 2. Shortcut Set-Up
+*You need to enable Allow running scripts from shortcuts settings for these shortcuts to work*
 Remember where you copied the kext (hopefully somewhere it doesn't bother you) now go there and option+rigt click to copy the pathname
 Install both shortcuts and during setup paste the path to kext 
 Now you can run it manually. You can now choose automatic control or manual control to disable/enable Turbo Boost.
