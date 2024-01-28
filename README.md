@@ -25,8 +25,10 @@ This can be easily automated on macOS.
 3. Select the shortcut from list
 3. And finally select wake up as the trigger
 
-![[wake-sleep-trigger.png]]
+
+![wake-sleep](images/wake-sleep-trigger.png)
+
 
 2. Do the same for login for making sure it runs
 
-![[login-trigger.png]]
+![login](images/login-trigger.png)
