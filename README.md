@@ -53,3 +53,5 @@ Feel free to contribute to this project by providing [ideas](https://github.com/
 ## Special Thanks
 This project is an iteration of [bradleymackey](https://github.com/bradleymackey)'s [turbo-boost-disable](https://github.com/bradleymackey/turbo-boost-disable) project.
 
+
+![meme](images/meme%20of%20the%20day.png)
